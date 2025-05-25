@@ -24,3 +24,17 @@ spec:
             cpu:  "50m"
         ports:
         - containerPort: 3015
+---
+# service.yaml file to expose the application
+apiVersion: v1    
+kind: Service
+metadata:
+  name: manohar
+spec:
+  selector:
+    app: manohar
+  ports:
+  - port: 3016
+    targetPort: 3015
+  type: LoadBalancer
+    
